@@ -1,0 +1,30 @@
+<beanio xmlns="http://www.beanio.org/2012/03"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.beanio.org/2012/03 http://www.beanio.org/2012/03/mapping.xsd">
+
+	<stream name="genesysSampleFile" format="csv">
+		<parser>
+			<property name="delimiter" value="," />
+			<property name="alwaysQuote" value="false" />
+		</parser>
+		<record name="descriptor" order="1" occurs="1">
+			<field name="Row Number" at="0" default="Row #" ignore="true" />
+			<field name="Data1" at="1" default="Data1" ignore="true" />
+			<field name="Data2" at="2" default="Data2" ignore="true" />
+			<field name="Data3" at="3" default="Data3" ignore="true" />
+		</record>
+
+		<record name="detail"
+			class="com.mmkalva.genesys.api.FileContent" order="2" occurs="0+">
+
+			<field name="rowNumber" at="0" trim="true" required="true" />
+			<field name="data1" at="1" trim="true" required="true" />
+			<field name="data2" at="2" trim="true" required="true" />
+			<field name="data3" at="3" trim="true" required="true" />
+
+
+		</record>
+
+	</stream>
+
+</beanio>
